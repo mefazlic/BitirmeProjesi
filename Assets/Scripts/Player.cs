@@ -7,12 +7,10 @@ public class Player : MonoBehaviour
 {
     public float speed;
 
+    LayerMask obstacleMask;
     Vector2 targetPos;
-    Vector2 hitSize = Vector2.one * 0.8f;
 
     Transform GFX;
-
-    LayerMask obstacleMask;
 
     float flipX;
     bool isMoving;
@@ -29,25 +27,37 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
-        Debug.Log(horizontalInput + ", " + verticalInput); // -1, 0
 
-        if (!isMoving)
+        //Debug.Log(horizontalInput + ", " + verticalInput);
+
+        if (Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0)
         {
+
             faceTurn(horizontalInput);
 
-            if (horizontalInput != 0 || verticalInput != 0)
+            if (!isMoving)
             {
-                targetPos = new Vector2(transform.position.x + horizontalInput, transform.position.y + verticalInput);
-                transform.position = Vector2.MoveTowards(transform.position, targetPos, 5f * Time.deltaTime);
-            }
 
-            Collider2D hit = Physics2D.OverlapBox(targetPos, hitSize, obstacleMask);
-            if (hit != null)
-            {
-                StartCoroutine(SmoothMove());
-            }
+                if (Mathf.Abs(horizontalInput) > 0)
+                {
+                    targetPos = new Vector2(transform.position.x + horizontalInput, transform.position.y);
+                }
+                else if (Mathf.Abs(verticalInput) > 0)
+                {
+                    targetPos = new Vector2(transform.position.x, transform.position.y + verticalInput);
+                }
 
+                Vector2 hitSize = Vector2.one * 0.01f;
+                Collider2D hit = Physics2D.OverlapBox(targetPos, hitSize, 0, obstacleMask);
+                if (!hit)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                    isMoving = false;
+                }
+
+            }
         }
+
     }
 
     void faceTurn(float horizontalInput)
@@ -58,7 +68,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator SmoothMove()
+    /*IEnumerator SmoothMove()
     {
         isMoving = true;
         while (Vector2.Distance(transform.position, targetPos) > 0.01f)
@@ -66,11 +76,10 @@ public class Player : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
             yield return null;
         }
-
+    ---------------------------------------------------------- UDEMY COURSE CODE ----------------------------------------------------------
         transform.position = targetPos;
-
         isMoving = false;
-    }
+    }*/
 
 
 
