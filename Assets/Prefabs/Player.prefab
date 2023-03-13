@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2984682879101946928}
   - component: {fileID: 2984682879101946935}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2984682879265866421}
   - component: {fileID: 2984682879265866422}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1089734147
+  m_SortingLayerID: -408023459
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1790972024, guid: e8786f429a35bd34584a9166704cf3d4, type: 3}
