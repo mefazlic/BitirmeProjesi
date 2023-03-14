@@ -252,10 +252,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.07295374
+    y: 0.07278481
+    width: 0.85409254
+    height: 0.8544304
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -717,6 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342445916}
   - component: {fileID: 1342445915}
+  - component: {fileID: 1342445917}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -736,7 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563039a409731454a993ddb3a879bd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 7
+  rb: {fileID: 1342445917}
 --- !u!4 &1342445916
 Transform:
   m_ObjectHideFlags: 0
@@ -753,6 +755,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1342445917
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342445914}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1776211928
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,81 +6,29 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public Rigidbody2D rb;
+    private Vector2 moveDirection;
 
-    LayerMask obstacleMask;
-    Vector2 targetPos;
-
-    Transform GFX;
-
-    float flipX;
-    bool isMoving;
-
-    void Start()
+    private void Update()
     {
-        obstacleMask = LayerMask.GetMask("Wall", "Enemy"); // Get the layer mask of the Wall and Enemy layer
-        GFX = GetComponentInChildren<SpriteRenderer>().transform; // Get the child object that have the SpriteRenderer component and get its transform
-        flipX = GFX.localScale.x;
+        // input processing
+        ProcessInputs();
+    }
+    private void FixedUpdate()
+    {
+        // physics
+        Move();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ProcessInputs()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        float Xaxis = Input.GetAxisRaw("Horizontal");
+        float Yaxis = Input.GetAxisRaw("Vertical");
 
-        //Debug.Log(horizontalInput + ", " + verticalInput);
-
-        if (Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0)
-        {
-
-            faceTurn(horizontalInput);
-
-            if (!isMoving)
-            {
-
-                if (Mathf.Abs(horizontalInput) > 0)
-                {
-                    targetPos = new Vector2(transform.position.x + horizontalInput, transform.position.y);
-                }
-                else if (Mathf.Abs(verticalInput) > 0)
-                {
-                    targetPos = new Vector2(transform.position.x, transform.position.y + verticalInput);
-                }
-
-                Vector2 hitSize = Vector2.one * 0.01f;
-                Collider2D hit = Physics2D.OverlapBox(targetPos, hitSize, 0, obstacleMask);
-                if (!hit)
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-                    isMoving = false;
-                }
-
-            }
-        }
-
+        moveDirection = new Vector2(Xaxis, Yaxis).normalized;
     }
-
-    void faceTurn(float horizontalInput)
+    void Move()
     {
-        if (horizontalInput != 0)
-        {
-            GFX.localScale = new Vector2(flipX * horizontalInput, GFX.localScale.y);
-        }
+        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
     }
-
-    /*IEnumerator SmoothMove()
-    {
-        isMoving = true;
-        while (Vector2.Distance(transform.position, targetPos) > 0.01f)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-            yield return null;
-        }
-    ---------------------------------------------------------- UDEMY COURSE CODE ----------------------------------------------------------
-        transform.position = targetPos;
-        isMoving = false;
-    }*/
-
-
-
 }
