@@ -29,6 +29,15 @@ public class Player : MonoBehaviour
     }
     void Move()
     {
+        turnFace();
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+    }
+
+    void turnFace()
+    {
+        if (moveDirection.x != 0)
+        {
+            transform.localScale = new Vector2(1 * moveDirection.x, transform.localScale.y);
+        }
     }
 }
