@@ -110,7 +110,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[12]
-    value: Room
+    value: Floor
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: layers.Array.data[13]
