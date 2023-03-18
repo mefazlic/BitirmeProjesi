@@ -261,10 +261,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.13190183
-    y: 0.13079019
-    width: 0.7361963
-    height: 0.7356948
+    x: 0.14860907
+    y: 0.1484375
+    width: 0.70278186
+    height: 0.703125
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -626,11 +626,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72cee85a2702ac74b80dec210bbd542f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomItems:
+  - {fileID: 2018764769333783479, guid: e66af8cc7e7d1ca47b78ba3df79f739a, type: 3}
+  - {fileID: 1894138631804385266, guid: ff0d80b2a475fae468b50d15096f6586, type: 3}
+  - {fileID: 9191027673165733303, guid: 659acdeb73090ce4a94bd7ace25bb290, type: 3}
+  - {fileID: 5928651636104349172, guid: 00526358404a2104280fa90c3e00b6b0, type: 3}
+  - {fileID: 1240195952245231411, guid: d665876782b08264aa5ea715d0d9657e, type: 3}
   floorPrefab: {fileID: 6705630016266693597, guid: 823c295d7d1321846a89c8f01549f4c4, type: 3}
   wallPrefab: {fileID: 2391059671053491794, guid: 22d1d6f0a9443e24eb66d59b0c251a0c, type: 3}
   tileSpawnerPrefab: {fileID: 4710720065386534700, guid: 9264fcf0aa299184bb68634985e9e9d5, type: 3}
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
-  totalFloorCount: 50
+  totalFloorCount: 500
+  itemSpawnPercent: 18
   minX: 0
   maxX: 0
   minY: 0
