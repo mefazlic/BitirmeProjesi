@@ -262,9 +262,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0.14860907
-    y: 0.1484375
+    y: 0.21092077
     width: 0.70278186
-    height: 0.703125
+    height: 0.57815844
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -636,8 +636,9 @@ MonoBehaviour:
   wallPrefab: {fileID: 2391059671053491794, guid: 22d1d6f0a9443e24eb66d59b0c251a0c, type: 3}
   tileSpawnerPrefab: {fileID: 4710720065386534700, guid: 9264fcf0aa299184bb68634985e9e9d5, type: 3}
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
-  totalFloorCount: 500
-  itemSpawnPercent: 18
+  totalFloorCount: 5000
+  itemSpawnPercent: 0
+  dungeonType: 1
   minX: 0
   maxX: 0
   minY: 0
