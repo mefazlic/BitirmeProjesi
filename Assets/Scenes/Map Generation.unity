@@ -632,12 +632,16 @@ MonoBehaviour:
   - {fileID: 9191027673165733303, guid: 659acdeb73090ce4a94bd7ace25bb290, type: 3}
   - {fileID: 5928651636104349172, guid: 00526358404a2104280fa90c3e00b6b0, type: 3}
   - {fileID: 1240195952245231411, guid: d665876782b08264aa5ea715d0d9657e, type: 3}
+  randomEnemies:
+  - {fileID: 383017035843427898, guid: 0b3cf34117b00284ebbc7220732d9862, type: 3}
+  - {fileID: 6218428089544886270, guid: 2121e1984c149344cad7b0ce1bea9951, type: 3}
   floorPrefab: {fileID: 6705630016266693597, guid: 823c295d7d1321846a89c8f01549f4c4, type: 3}
   wallPrefab: {fileID: 2391059671053491794, guid: 22d1d6f0a9443e24eb66d59b0c251a0c, type: 3}
   tileSpawnerPrefab: {fileID: 4710720065386534700, guid: 9264fcf0aa299184bb68634985e9e9d5, type: 3}
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
-  totalFloorCount: 5000
+  totalFloorCount: 500
   itemSpawnPercent: 0
+  enemySpawnPercent: 41
   dungeonType: 1
   minX: 0
   maxX: 0

@@ -11,11 +11,12 @@ public enum DungeonType { Caverns, Rooms }
 public class DungeonManager : MonoBehaviour
 {
     public GameObject[] randomItems; // Holds the items that spawn randomly
+    public GameObject[] randomEnemies; // Holds the items that spawn randomly
     public GameObject floorPrefab, wallPrefab, tileSpawnerPrefab, exitPrefab;
 
     public int totalFloorCount;
     [UnityEngine.Range(0, 100)] public int itemSpawnPercent;
-
+    [UnityEngine.Range(0, 100)] public int enemySpawnPercent;
     public DungeonType dungeonType;
 
     [HideInInspector] public float minX, maxX, minY, maxY; // floors bounds (min x,y and max x,y)
@@ -175,6 +176,7 @@ public class DungeonManager : MonoBehaviour
                         Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), hitSize, 0, wallMask); // check if there is a wall to the left of the floor
 
                         RandomItems(hitFloor,hitTop, hitRight, hitBottom, hitLeft);
+                        RandomEnemies(hitFloor, hitTop, hitRight, hitBottom, hitLeft);
                     }
 
                 }
@@ -209,6 +211,22 @@ public class DungeonManager : MonoBehaviour
                 goItem.transform.SetParent(hitFloor.transform); // set the item as a child of the floor
             }
 
+        }
+    }
+
+    void RandomEnemies(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
+    {
+        if(!hitTop && !hitRight&& !hitBottom && !hitLeft) 
+        {
+            int roll = Random.Range(0, 101);
+            if (roll <= enemySpawnPercent)
+            {
+                int enemyIndex = Random.Range(0, randomEnemies.Length);
+
+                GameObject goEnemy = Instantiate(randomEnemies[enemyIndex], hitFloor.transform.position, Quaternion.identity) as GameObject; // spawn the enemy
+                goEnemy.name = randomEnemies[enemyIndex].name;
+                goEnemy.transform.SetParent(hitFloor.transform); // set the enemy as a child of the floor
+            }
         }
     }
 }
