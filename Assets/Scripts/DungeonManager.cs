@@ -35,11 +35,6 @@ public class DungeonManager : MonoBehaviour
             case DungeonType.Caverns: RandomWalker(); break;
             case DungeonType.Rooms: RoomWalker(); break;
         }
-
-
-
-
-
     }
 
     void Update()
@@ -48,7 +43,6 @@ public class DungeonManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-
     }
 
     void RandomWalker()
@@ -65,11 +59,8 @@ public class DungeonManager : MonoBehaviour
             {
                 floorList.Add(curPos);
             }
-
         }
-
         StartCoroutine(DelayProgress());
-
     }
 
     void RoomWalker()
