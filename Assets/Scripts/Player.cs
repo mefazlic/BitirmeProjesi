@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+
     private enum State
     {
         Normal,
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour
                 }
                 break;
         }
-        
+
     }
     private void FixedUpdate()
     {
@@ -83,7 +85,7 @@ public class Player : MonoBehaviour
     }
     void Move()
     {
-        rb.velocity = moveDirection* speed;
+        rb.velocity = moveDirection * speed;
     }
 
     void Dash()
@@ -108,4 +110,5 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(1 * moveDirection.x, transform.localScale.y);
         }
     }
+
 }
