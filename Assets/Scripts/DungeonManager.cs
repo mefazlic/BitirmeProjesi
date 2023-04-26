@@ -193,7 +193,7 @@ public class DungeonManager : MonoBehaviour
         if ((hitTop || hitRight || hitBottom || hitLeft) && !(hitTop && hitBottom) && (hitLeft && hitRight))
         {
             int roll = Random.Range(0, 101);
-            if (roll <= itemSpawnPercent)
+            if (roll < itemSpawnPercent)
             {
                 int itemIndex = Random.Range(0, randomItems.Length);
 
@@ -210,7 +210,7 @@ public class DungeonManager : MonoBehaviour
         if(!hitTop && !hitRight&& !hitBottom && !hitLeft) 
         {
             int roll = Random.Range(0, 101);
-            if (roll <= enemySpawnPercent)
+            if (roll < enemySpawnPercent)
             {
                 int enemyIndex = Random.Range(0, randomEnemies.Length);
 

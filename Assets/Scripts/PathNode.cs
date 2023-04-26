@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PathNode {
 
-    private Grid<PathNode> grid;
+   /* private Grid<PathNode> grid;
     public int x;
     public int y;
 
@@ -33,6 +34,14 @@ public class PathNode {
 
     public override string ToString() {
         return x + "," + y;
-    }
+    }*/
 
+    public Vector2 position;
+    public Vector2 parent;
+
+    public PathNode(Vector2 _position, Vector2 _parent)
+    {
+        position = _position;
+        parent = _parent;
+    }
 }

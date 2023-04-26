@@ -323,10 +323,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.28042933
+    y: 0.2181818
+    width: 0.43845627
+    height: 0.5610389
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -735,7 +735,7 @@ MonoBehaviour:
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
   totalFloorCount: 500
   itemSpawnPercent: 0
-  enemySpawnPercent: 0
+  enemySpawnPercent: 36
   dungeonType: 1
   minX: 0
   maxX: 0

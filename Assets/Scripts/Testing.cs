@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Testing : MonoBehaviour
-{
+{/*
     private Pathfinding pathfinding;
     void Start()
     {
@@ -56,5 +56,5 @@ public class Testing : MonoBehaviour
         Vector3 mouseWorldPosition = GetMouseWorldPosition();
         return (mouseWorldPosition - fromPosition).normalized;
     }
-    #endregion
+    #endregion*/
 }

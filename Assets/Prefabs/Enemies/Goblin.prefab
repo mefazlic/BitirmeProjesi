@@ -125,13 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a354f8e2d4e294297c60f0acfdabd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  checkRadius: 4
-  attackRadius: 0.5
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  dir: {x: 0, y: 0, z: 0}
+  patrolInterval: {x: 1, y: 4}
+  alertRange: 5
+  chaseSpeed: 2
+  dmgRange: {x: 0, y: 0}
 --- !u!50 &1891979461642918746
 Rigidbody2D:
   serializedVersion: 4
