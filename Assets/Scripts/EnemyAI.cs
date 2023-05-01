@@ -20,7 +20,8 @@ public class EnemyAI : MonoBehaviour
     private bool isInChaseRange;
     private bool isInAttackRange;*/
 
-
+    public EnemyType enemyType;
+    EnemyAttack attackScript;
 
     public Vector2 patrolInterval;
     public float alertRange;
@@ -37,6 +38,11 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        if (enemyType == EnemyType.MAGE) { attackScript = gameObject.AddComponent<AttackMage>(); }
+        else if (enemyType == EnemyType.GOBLIN) { attackScript = gameObject.AddComponent<AttackGoblin>(); }
+        else if (enemyType == EnemyType.MINATOUR) { attackScript = gameObject.AddComponent<AttackMinotaur>(); }
+
+
         /*
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player").transform;
@@ -115,6 +121,7 @@ public class EnemyAI : MonoBehaviour
         {
             float dmgAmount = Mathf.Ceil(Random.Range(dmgRange.x, dmgRange.y));
             Debug.Log(name + " attacked and hit for" + dmgAmount + "points of damage");
+            attackScript.InitiateAttack();
         }
         else
         {

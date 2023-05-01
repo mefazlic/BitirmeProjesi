@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7732681485673387259}
   - component: {fileID: 5687544676232139819}
-  - component: {fileID: -8394428129874147022}
   - component: {fileID: 3262544136451653956}
   - component: {fileID: -6437265478587384610}
+  - component: {fileID: -8394428129874147022}
   m_Layer: 15
   m_Name: Minotaur
   m_TagString: Untagged
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8394428129874147022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6218428089544886270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a354f8e2d4e294297c60f0acfdabd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolInterval: {x: 1, y: 4}
-  alertRange: 10
-  chaseSpeed: 2
-  dmgRange: {x: 0, y: 0}
 --- !u!61 &3262544136451653956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +134,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8394428129874147022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218428089544886270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a354f8e2d4e294297c60f0acfdabd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 2
+  patrolInterval: {x: 1, y: 4}
+  alertRange: 10
+  chaseSpeed: 2
+  dmgRange: {x: 0, y: 0}

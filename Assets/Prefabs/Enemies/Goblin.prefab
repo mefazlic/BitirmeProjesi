@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5200226812212177432}
   - component: {fileID: 6192959982604151744}
   - component: {fileID: 4626390491365933335}
-  - component: {fileID: -1711701954663968949}
   - component: {fileID: 1891979461642918746}
+  - component: {fileID: -1711701954663968949}
   - component: {fileID: -8087783101562270382}
   m_Layer: 15
   m_Name: Goblin
@@ -114,22 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &-1711701954663968949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383017035843427898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a354f8e2d4e294297c60f0acfdabd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolInterval: {x: 1, y: 4}
-  alertRange: 5
-  chaseSpeed: 2
-  dmgRange: {x: 0, y: 0}
 --- !u!50 &1891979461642918746
 Rigidbody2D:
   serializedVersion: 4
@@ -151,6 +135,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1711701954663968949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383017035843427898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a354f8e2d4e294297c60f0acfdabd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 1
+  patrolInterval: {x: 1, y: 4}
+  alertRange: 5
+  chaseSpeed: 2
+  dmgRange: {x: 0, y: 0}
 --- !u!114 &-8087783101562270382
 MonoBehaviour:
   m_ObjectHideFlags: 0
