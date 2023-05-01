@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
-
     private enum State
     {
         Normal,
@@ -22,10 +21,12 @@ public class Player : MonoBehaviour
     private float rollSpeed;
     private bool isDashButtonDown;
     private State state;
+    private WeaponParent weaponParent;
 
     private void Awake()
     {
         state = State.Normal;
+        weaponParent = GetComponentInChildren<WeaponParent>();
     }
 
     private void Update()
@@ -47,7 +48,6 @@ public class Player : MonoBehaviour
                 }
                 break;
         }
-
     }
     private void FixedUpdate()
     {
@@ -82,10 +82,18 @@ public class Player : MonoBehaviour
             rollSpeed = 20f;
             state = State.Rolling;
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            Attack();
+        }
     }
     void Move()
     {
         rb.velocity = moveDirection * speed;
+    }
+
+    void Attack()
+    {
+        weaponParent.Attack();
     }
 
     void Dash()
