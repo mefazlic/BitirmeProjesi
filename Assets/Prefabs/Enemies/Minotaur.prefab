@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3262544136451653956}
   - component: {fileID: -6437265478587384610}
   - component: {fileID: -8394428129874147022}
+  - component: {fileID: 8180923706462513585}
   m_Layer: 15
   m_Name: Minotaur
   m_TagString: Untagged
@@ -151,3 +152,24 @@ MonoBehaviour:
   alertRange: 10
   chaseSpeed: 2
   dmgRange: {x: 0, y: 0}
+--- !u!114 &8180923706462513585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218428089544886270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
+  maxHealth: 5
+  onHitWithReference:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeathWithReference:
+    m_PersistentCalls:
+      m_Calls: []
+  isDead: 0
