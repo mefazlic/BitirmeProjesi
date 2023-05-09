@@ -96,17 +96,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            weaponParent.Attack();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Dash();
         }
-    }
-
-    void Attack()
-    {
-        weaponParent.Attack();
     }
 
     void Dash()

@@ -26,7 +26,6 @@ public class EnemyAI : MonoBehaviour
     public Vector2 patrolInterval;
     public float alertRange;
     public float chaseSpeed;
-    public Vector2 dmgRange;
 
     Player player;
     LayerMask obstacleMask, walkableMask;
@@ -114,21 +113,6 @@ public class EnemyAI : MonoBehaviour
         isMoving = false;
     }
 
-    void Attack()
-    {
-        int roll = Random.Range(0, 100);
-        if (roll > 50)
-        {
-            float dmgAmount = Mathf.Ceil(Random.Range(dmgRange.x, dmgRange.y));
-            Debug.Log(name + " attacked and hit for" + dmgAmount + "points of damage");
-            attackScript.InitiateAttack();
-        }
-        else
-        {
-            Debug.Log(name + " attacked and missed");
-        }
-    }
-
     void CheckNode(Vector2 chkPoint, Vector2 parent)
     {
         Vector2 size = Vector2.one * 0.8f;
@@ -192,7 +176,7 @@ public class EnemyAI : MonoBehaviour
                 {
                     if (dist <= 1.1f)
                     {
-                        Attack();
+                        attackScript.InitiateAttack(player);
                         yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.15f));
                     }
 

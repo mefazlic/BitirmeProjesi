@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackMinotaur : EnemyAttack
 {
-    public override void InitiateAttack()
+    public override void InitiateAttack(Player player)
     {
         Debug.Log("Minotaur Attack");
     }

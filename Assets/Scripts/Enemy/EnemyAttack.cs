@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class EnemyAttack : MonoBehaviour
 {
-    public abstract void InitiateAttack();
+    public abstract void InitiateAttack(Player player);
 }
