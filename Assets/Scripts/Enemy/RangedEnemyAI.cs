@@ -1,25 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class EnemyAI : MonoBehaviour
+public class RangedEnemyAI : MonoBehaviour
 {
-    /*public float speed;
-    public float checkRadius;
-    public float attackRadius;
-
-    public LayerMask whatIsPlayer;
-
-    private Transform target;
-    private Rigidbody2D rb;
-    private Vector2 movement;
-    public Vector3 dir;
-
-    private bool isInChaseRange;
-    private bool isInAttackRange;*/
-
     public EnemyType enemyType;
     EnemyAttack attackScript;
 
@@ -38,14 +22,8 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         if (enemyType == EnemyType.MAGE) { attackScript = gameObject.AddComponent<AttackMage>(); }
-        else if (enemyType == EnemyType.GOBLIN) { attackScript = gameObject.AddComponent<AttackGoblin>(); }
-        else if (enemyType == EnemyType.MINATOUR) { attackScript = gameObject.AddComponent<AttackMinotaur>(); }
-
-
-        /*
-        rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindWithTag("Player").transform;
-        */
+        else if (enemyType == EnemyType.WARLOCK) { attackScript = gameObject.AddComponent<AttackWarlock>(); }
+        else if (enemyType == EnemyType.SORCERER) { attackScript = gameObject.AddComponent<AttackSorcerer>(); }
 
         player = FindObjectOfType<Player>();
 
@@ -56,20 +34,6 @@ public class EnemyAI : MonoBehaviour
 
         StartCoroutine(Movement());
     }
-    private void Update()
-    {
-        /*
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        dir.Normalize();
-        movement = dir;
-        */
-
-    }
-
     private void Patrol()
     {
         availableMovementList.Clear();
@@ -77,16 +41,16 @@ public class EnemyAI : MonoBehaviour
         Vector2 size = Vector2.one * 0.8f;
 
         Collider2D hitUp = Physics2D.OverlapBox(curPos + Vector2.up, size, 0, obstacleMask);
-        if(!hitUp){availableMovementList.Add(Vector2.up);}
+        if (!hitUp) { availableMovementList.Add(Vector2.up); }
 
         Collider2D hitRight = Physics2D.OverlapBox(curPos + Vector2.right, size, 0, obstacleMask);
-        if (!hitRight) { availableMovementList.Add(Vector2.right);}
+        if (!hitRight) { availableMovementList.Add(Vector2.right); }
 
         Collider2D hitDown = Physics2D.OverlapBox(curPos + Vector2.down, size, 0, obstacleMask);
-        if (!hitDown) { availableMovementList.Add(Vector2.down);}
+        if (!hitDown) { availableMovementList.Add(Vector2.down); }
 
         Collider2D hitLeft = Physics2D.OverlapBox(curPos + Vector2.left, size, 0, obstacleMask);
-        if (!hitLeft) { availableMovementList.Add(Vector2.left);}
+        if (!hitLeft) { availableMovementList.Add(Vector2.left); }
 
         if (availableMovementList.Count > 0) // if there is a direction to move
         {
@@ -97,16 +61,16 @@ public class EnemyAI : MonoBehaviour
         }
         StartCoroutine(SmoothMove(Random.Range(patrolInterval.x, patrolInterval.y)));
     }
-
     IEnumerator SmoothMove(float speed)
     {
         isMoving = true;
 
-        while(Vector2.Distance(transform.position, curPos) > 0.05f)
+        while (Vector2.Distance(transform.position, curPos) > 0.05f)
         {
             transform.position = Vector2.MoveTowards(transform.position, curPos, 5f * Time.deltaTime);
             yield return null;
-        } transform.position = curPos;
+        }
+        transform.position = curPos;
 
         yield return new WaitForSeconds(speed);
 
@@ -140,7 +104,7 @@ public class EnemyAI : MonoBehaviour
             CheckNode(myPos + Vector2.left, myPos);
 
             listIndex++;
-            if(listIndex < nodesList.Count)
+            if (listIndex < nodesList.Count)
             {
                 myPos = nodesList[listIndex].position;
             }
@@ -148,7 +112,7 @@ public class EnemyAI : MonoBehaviour
         if (myPos == targetPos)
         {
             nodesList.Reverse(); // crawl backwards from the target to the start
-            for(int i = 0; i < nodesList.Count; i++)
+            for (int i = 0; i < nodesList.Count; i++)
             {
                 if (myPos == nodesList[i].position)
                 {
@@ -200,22 +164,6 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
-
-    }
-
-    private void FixedUpdate()
-    {
-        /*
-        if (isInChaseRange && !isInAttackRange)
-        {
-            rb.velocity = movement * speed;
-        }
-        if (isInAttackRange)
-        {
-            rb.velocity = Vector2.zero;
-        }
-        */
-
 
     }
 }

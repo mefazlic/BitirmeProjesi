@@ -6,6 +6,10 @@ public enum EnemyType
 {
     MAGE,
     GOBLIN,
-    MINATOUR
+    MINATOUR,
+    BAT,
+    SORCERER,
+    WARLOCK,
+    CREEPER
 }
 
