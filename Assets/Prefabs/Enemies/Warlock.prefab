@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1204645688679831597}
   - component: {fileID: 4136628463375822885}
   - component: {fileID: 625555421915139891}
+  - component: {fileID: 2839682535461256876}
   - component: {fileID: 6287889251680766752}
   m_Layer: 15
   m_Name: Warlock
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2705181494626337374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8406742, y: -20.765238, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,9 +149,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 5
-  patrolInterval: {x: 0, y: 0}
-  alertRange: 0
-  chaseSpeed: 0
+  patrolInterval: {x: 1, y: 2}
+  alertRange: 15
+  chaseSpeed: 1
+--- !u!114 &2839682535461256876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705181494626337374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b4a074a99e8fe4fb87faab025bb2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!114 &6287889251680766752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 15
+  maxHealth: 15
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []

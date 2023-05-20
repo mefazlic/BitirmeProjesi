@@ -21,9 +21,9 @@ public class RangedEnemyAI : MonoBehaviour
 
     private void Start()
     {
-        if (enemyType == EnemyType.MAGE) { attackScript = gameObject.AddComponent<AttackMage>(); }
-        else if (enemyType == EnemyType.WARLOCK) { attackScript = gameObject.AddComponent<AttackWarlock>(); }
-        else if (enemyType == EnemyType.SORCERER) { attackScript = gameObject.AddComponent<AttackSorcerer>(); }
+        if (enemyType == EnemyType.MAGE) { attackScript = gameObject.GetComponent<AttackMage>(); }
+        else if (enemyType == EnemyType.WARLOCK) { attackScript = gameObject.GetComponent<AttackWarlock>(); }
+        else if (enemyType == EnemyType.SORCERER) { attackScript = gameObject.GetComponent<AttackSorcerer>(); }
 
         player = FindObjectOfType<Player>();
 
@@ -138,7 +138,7 @@ public class RangedEnemyAI : MonoBehaviour
                 float dist = Vector2.Distance(transform.position, player.transform.position);
                 if (dist <= alertRange)
                 {
-                    if (dist <= 1.1f)
+                    if (dist <= 6f)
                     {
                         attackScript.InitiateAttack(player);
                         yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.15f));

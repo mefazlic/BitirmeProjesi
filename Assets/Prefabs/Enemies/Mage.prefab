@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4475448542122677544}
   - component: {fileID: -8688623063271442842}
   - component: {fileID: 1045769490723872846}
+  - component: {fileID: 5629097237645162737}
   - component: {fileID: -1472414453698003623}
   m_Layer: 15
   m_Name: Mage
@@ -148,9 +149,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  patrolInterval: {x: 0, y: 0}
-  alertRange: 0
-  chaseSpeed: 0
+  patrolInterval: {x: 1, y: 2}
+  alertRange: 10
+  chaseSpeed: 1
+--- !u!114 &5629097237645162737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366978369331153719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731bb3b5fe4e4b149806aa04aabdabb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerT: {fileID: 2984682879101946928, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
+  missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
+  missileSpeed: 2
+  missileDuration: 3
 --- !u!114 &-1472414453698003623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 10
+  maxHealth: 10
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []

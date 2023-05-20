@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6093614824191948008}
   - component: {fileID: 5573418654576410963}
   - component: {fileID: 6962990063771225818}
+  - component: {fileID: -5457977586375431001}
   - component: {fileID: 5075249955984569334}
   m_Layer: 15
   m_Name: Sorcerer
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313489912487609660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.744, y: -20.914, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,9 +149,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 4
-  patrolInterval: {x: 0, y: 0}
-  alertRange: 0
-  chaseSpeed: 0
+  patrolInterval: {x: 1, y: 2}
+  alertRange: 15
+  chaseSpeed: 1
+--- !u!114 &-5457977586375431001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313489912487609660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2251f344c057f3d478433194d70ae1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!114 &5075249955984569334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 10
+  maxHealth: 10
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []

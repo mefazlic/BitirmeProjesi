@@ -12,6 +12,7 @@ public class WeaponParent : MonoBehaviour
 
     public Transform circleOrigin;
     public float radius;
+    public int damageAmount = 3;
 
     public void Attack()
     {
@@ -42,7 +43,7 @@ public class WeaponParent : MonoBehaviour
             Health health;
             if (health = collider.GetComponent<Health>())
             {
-                health.GetHit(3, transform.parent.gameObject);
+                health.GetHit(damageAmount, transform.parent.gameObject);
             }
         }
     }

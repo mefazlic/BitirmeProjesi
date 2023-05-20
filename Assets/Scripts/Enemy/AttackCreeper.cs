@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AttackCreeper : EnemyAttack
 {
+    public int dmg = 7;
     public override void InitiateAttack(Player player)
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.red;
         Health health = player.GetComponent<Health>();
-        health.GetHit(7, transform.parent.gameObject);
+        health.GetHit(dmg, transform.parent.gameObject);
         Destroy(gameObject);
     }
 }
