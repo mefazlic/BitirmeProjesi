@@ -31,9 +31,9 @@ public class AttackSorcerer : EnemyAttack
     {
         // blast on player location
         yield return new WaitForSeconds(indicatorDuration);
-        GameObject blastarea = Instantiate(blastPrefab, indicator, Quaternion.identity);
-        blastarea.transform.localScale = new Vector3(blastRadius, blastRadius, 1f);
-        Destroy(blastarea, 0.5f);
+        GameObject blastArea = Instantiate(blastPrefab, indicator, Quaternion.identity);
+        blastArea.transform.localScale = new Vector3(blastRadius, blastRadius, 1f);
+        Destroy(blastArea, 0.5f);
     }
 
     private void startCooldown()

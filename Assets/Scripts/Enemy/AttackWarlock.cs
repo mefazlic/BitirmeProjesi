@@ -4,15 +4,47 @@ using UnityEngine;
 
 public class AttackWarlock : EnemyAttack
 {
-    public int dmg;
+    public GameObject indicatorPrefab;
+    public float indicatorDuration = 1f;
+
+    public GameObject laserPrefab;
+    public float laserSpeed = 7f;
+
+    public float cooldown = 2f;
+    private bool canAttack = true;
     public override void InitiateAttack(Player player)
     {
         // straight blast
-        Debug.Log("Warlock Attack");
-
+        if (!canAttack)
+        {
+            return;
+        }
         
+        GameObject indicator = Instantiate(indicatorPrefab, (transform.position + new Vector3(0,1,0)), Quaternion.identity);
+        Destroy(indicator, indicatorDuration);
 
-        Health health = player.GetComponent<Health>();
-        health.GetHit(dmg, transform.parent.gameObject);
+        StartCoroutine(GoLaser(player));
+        startCooldown();
+    }
+
+    IEnumerator GoLaser(Player player)
+    {
+        yield return new WaitForSeconds(indicatorDuration);
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.Euler(0f,0f, angle));
+        laser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
+        Destroy(laser, 2f);
+    }
+
+    private void startCooldown()
+    {
+        canAttack = false;
+        Invoke("ResetCooldown", cooldown);
+    }
+
+    private void ResetCooldown()
+    {
+        canAttack = true;
     }
 }
