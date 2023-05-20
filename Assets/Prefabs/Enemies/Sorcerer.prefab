@@ -164,7 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2251f344c057f3d478433194d70ae1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 0
+  blastPrefab: {fileID: 5491421891823737800, guid: ed424b1befdb76d419d5de8b5b434273, type: 3}
+  blastRadius: 3
+  indicatorPrefab: {fileID: 3794416554551632461, guid: 368c2ce0320790b469e2bfb8879fb30f, type: 3}
+  indicatorDuration: 1
 --- !u!114 &5075249955984569334
 MonoBehaviour:
   m_ObjectHideFlags: 0

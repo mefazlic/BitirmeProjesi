@@ -4,15 +4,47 @@ using UnityEngine;
 
 public class AttackSorcerer : EnemyAttack
 {
-    public int dmg;
+    public GameObject blastPrefab;
+    public float blastRadius = 3f;
+
+    public GameObject indicatorPrefab;
+    public float indicatorDuration = 1f;
+
+    public float cooldown = 3f;
+    private bool canAttack = true;
+
     public override void InitiateAttack(Player player)
     {
-        // blast on player location
-        Debug.Log("Sorcerer Attack");
+        if (!canAttack)
+        {
+            return;
+        }
+        GameObject indicator = Instantiate(indicatorPrefab, player.transform.position, Quaternion.identity);
+        Vector2 indicatorPos = indicator.transform.position;
+        Destroy(indicator, indicatorDuration);
 
-        //get floor under player position, damage if player is inside
-
-        Health health = player.GetComponent<Health>();
-        health.GetHit(dmg, transform.parent.gameObject);
+        StartCoroutine(SpawnBlastArea(indicatorPos));
+        startCooldown();
     }
+
+    IEnumerator SpawnBlastArea(Vector2 indicator)
+    {
+        // blast on player location
+        yield return new WaitForSeconds(indicatorDuration);
+        GameObject blastarea = Instantiate(blastPrefab, indicator, Quaternion.identity);
+        blastarea.transform.localScale = new Vector3(blastRadius, blastRadius, 1f);
+        Destroy(blastarea, 0.5f);
+    }
+
+    private void startCooldown()
+    {
+        canAttack = false;
+        Invoke("ResetCooldown", cooldown);
+    }
+
+    private void ResetCooldown()
+    {
+        canAttack = true;
+    }
+
 }
