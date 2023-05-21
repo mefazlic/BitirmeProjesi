@@ -8,7 +8,7 @@ public class AttackSorcerer : EnemyAttack
     public float blastRadius = 3f;
 
     public GameObject indicatorPrefab;
-    public float indicatorDuration = 1f;
+    public float indicatorDuration = 0.5f;
 
     public float cooldown = 3f;
     private bool canAttack = true;

@@ -9,6 +9,13 @@ public class AttackCreeper : EnemyAttack
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.red;
+
+        StartCoroutine(Explode(player));
+    }
+
+    IEnumerator Explode(Player player)
+    {
+        yield return new WaitForSeconds(1f);
         Health health = player.GetComponent<Health>();
         health.GetHit(dmg, transform.parent.gameObject);
         Destroy(gameObject);
