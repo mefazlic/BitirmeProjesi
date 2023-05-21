@@ -31,7 +31,7 @@ public class AttackWarlock : EnemyAttack
     {
         yield return new WaitForSeconds(indicatorDuration);
         Vector2 direction = (player.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.Euler(0f,0f, angle));
         laser.GetComponent<Rigidbody2D>().velocity = direction * laserSpeed;
         Destroy(laser, 2f);
