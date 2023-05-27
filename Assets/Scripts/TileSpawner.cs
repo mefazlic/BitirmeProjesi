@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class TileSpawner : MonoBehaviour
 {
@@ -41,29 +42,37 @@ public class TileSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LayerMask envMask = LayerMask.GetMask("Wall","Floor"); // get the layer mask for the walls and floors layer
+        LayerMask envMask = LayerMask.GetMask("Wall", "Floor"); // get the layer mask for the walls and floors layer
 
-        for (int x = -1; x <= 1; x++) 
-        { 
+        StartCoroutine(PlaceFloorTiles(envMask));
+    
+    }
+
+    IEnumerator PlaceFloorTiles(LayerMask envMask)
+    {
+        yield return new WaitForSeconds(15f);
+        for (int x = -1; x <= 1; x++)
+        {
             for (int y = -1; y <= 1; y++)
             {
                 Vector2 targetPos = new Vector2(transform.position.x + x, transform.position.y + y); // get the position of the tile we are checking
-                Collider2D hit = Physics2D.OverlapBox(targetPos, Vector2.one * 0.8f, 0, envMask);
+                Collider2D hit = Physics2D.OverlapBox(targetPos, Vector2.one * 0.8f, 0, envMask); 
 
                 if (!hit)
                 { // add a wall
                     GameObject goWall = Instantiate(dungeonManager.wallPrefab, targetPos, Quaternion.identity) as GameObject;
                     goWall.name = dungeonManager.wallPrefab.name;
-                    goWall.transform.SetParent(dungeonManager.transform); // set the parent of the floor to the dungeon manager
+                    goWall.transform.SetParent(dungeonManager.transform); // set the parent of the wall to the dungeon manager
+
+                    //yield return new WaitForSeconds(120f); // Add a delay here
                 }
             }
         }
 
-
         Destroy(gameObject); // destroy the tile spawner   
     }
 
-    void OnDrawGizmos()
+void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
 

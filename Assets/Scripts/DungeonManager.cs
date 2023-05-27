@@ -10,6 +10,7 @@ public enum DungeonType { Caverns, Rooms }
 
 public class DungeonManager : MonoBehaviour
 {
+
     public GameObject[] randomItems; // Holds the items that spawn randomly
     public GameObject[] randomEnemies; // Holds the items that spawn randomly
     public GameObject floorPrefab, wallPrefab, tileSpawnerPrefab, exitPrefab;
@@ -30,7 +31,7 @@ public class DungeonManager : MonoBehaviour
         wallMask = LayerMask.GetMask("Wall");
 
 
-        switch(dungeonType)
+        switch (dungeonType)
         {
             case DungeonType.Caverns: RandomWalker(); break;
             case DungeonType.Rooms: RoomWalker(); break;
@@ -74,7 +75,7 @@ public class DungeonManager : MonoBehaviour
             Vector3 walkDir = RandomDirection();
             int walkLenght = Random.Range(9, 18);
 
-            for(int i = 0; i < walkLenght; i++)
+            for (int i = 0; i < walkLenght; i++)
             {
                 if (!InFloorList(curPos + walkDir))
                 {
@@ -85,9 +86,9 @@ public class DungeonManager : MonoBehaviour
             }
 
             int width = Random.Range(1, 5);
-            int height = Random.Range(1,5);
+            int height = Random.Range(1, 5);
 
-            for(int w = -width; w <= width; w++) 
+            for (int w = -width; w <= width; w++)
             {
                 for (int h = -height; h <= height; h++)
                 {
@@ -110,8 +111,8 @@ public class DungeonManager : MonoBehaviour
         {
             case 1: return Vector3.up;
             case 2: return Vector3.right;
-            case 3: return Vector3.down; 
-            case 4: return Vector3.left; 
+            case 3: return Vector3.down;
+            case 4: return Vector3.left;
         }
 
         return Vector3.zero; // Unity want to return something, even if this code doesn't mean anything it satisfies the return error
@@ -127,7 +128,7 @@ public class DungeonManager : MonoBehaviour
             }
         }
 
-        return false;  
+        return false;
     }
 
     IEnumerator DelayProgress() // spawn exit
@@ -137,14 +138,14 @@ public class DungeonManager : MonoBehaviour
             GameObject goTile = Instantiate(tileSpawnerPrefab, floorList[i], Quaternion.identity) as GameObject;
             goTile.name = tileSpawnerPrefab.name;
             goTile.transform.SetParent(transform);
+
+            yield return new WaitForSeconds(0.01f); // Add a delay here
         }
 
         while (FindObjectsOfType<TileSpawner>().Length > 0)
         {
             // TileSpawner unit is converted to Floor, so we waiting for complete
             yield return null; // wait till next frame;
-
-
         }
 
         ExitDoorway();
@@ -166,7 +167,7 @@ public class DungeonManager : MonoBehaviour
                         Collider2D hitBottom = Physics2D.OverlapBox(new Vector2(x, y - 1), hitSize, 0, wallMask); // check if there is a wall below the floor
                         Collider2D hitLeft = Physics2D.OverlapBox(new Vector2(x - 1, y), hitSize, 0, wallMask); // check if there is a wall to the left of the floor
 
-                        RandomItems(hitFloor,hitTop, hitRight, hitBottom, hitLeft);
+                        RandomItems(hitFloor, hitTop, hitRight, hitBottom, hitLeft);
                         RandomEnemies(hitFloor, hitTop, hitRight, hitBottom, hitLeft);
                     }
 
@@ -175,6 +176,7 @@ public class DungeonManager : MonoBehaviour
         }
 
     }
+
 
     void ExitDoorway()
     {
@@ -207,7 +209,7 @@ public class DungeonManager : MonoBehaviour
 
     void RandomEnemies(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
     {
-        if(!hitTop && !hitRight&& !hitBottom && !hitLeft) 
+        if (!hitTop && !hitRight && !hitBottom && !hitLeft)
         {
             int roll = Random.Range(0, 101);
             if (roll < enemySpawnPercent)
