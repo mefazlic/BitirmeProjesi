@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5075249955984569334}
   m_Layer: 15
   m_Name: Sorcerer
-  m_TagString: Untagged
+  m_TagString: Sorcerer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   blastRadius: 3
   indicatorPrefab: {fileID: 3794416554551632461, guid: 368c2ce0320790b469e2bfb8879fb30f, type: 3}
   indicatorDuration: 1
+  cooldown: 3
 --- !u!114 &5075249955984569334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +186,8 @@ MonoBehaviour:
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
-  OnDeathWithReference:
+  onDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+  enemyName: 

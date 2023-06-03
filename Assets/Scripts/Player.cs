@@ -88,10 +88,6 @@ public class Player : MonoBehaviour
         isMoving = false;
     }
 
-    private void FixedUpdate()
-    {
-    }
-
     void ProcessInputs()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))

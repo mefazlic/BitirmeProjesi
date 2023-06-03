@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2797698980002369414}
   m_Layer: 15
   m_Name: Creeper
-  m_TagString: Untagged
+  m_TagString: Creeper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   enemyType: 6
   patrolInterval: {x: 1, y: 1.1}
   alertRange: 10
-  chaseSpeed: 2
+  chaseSpeed: 4
 --- !u!114 &2797698980002369414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +168,8 @@ MonoBehaviour:
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
-  OnDeathWithReference:
+  onDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+  enemyName: 

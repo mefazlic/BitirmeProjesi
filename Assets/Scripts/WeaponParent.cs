@@ -14,9 +14,15 @@ public class WeaponParent : MonoBehaviour
     public float radius;
     public int damageAmount = 3;
 
+    public static int damageToCreeper;
+    public static int damageToGoblin;
+    public static int damageToMage;
+    public static int damageToSorcerer;
+    public static int damageToWarlock;
+
     public void Attack()
     {
-        if (attackBlocked){ return; }
+        if (attackBlocked) { return; }
         animator.SetTrigger("Attack");
         attackBlocked = true;
         StartCoroutine(DelayAttack());
@@ -44,6 +50,27 @@ public class WeaponParent : MonoBehaviour
             if (health = collider.GetComponent<Health>())
             {
                 health.GetHit(damageAmount, transform.parent.gameObject);
+                
+                if (collider.CompareTag("Creeper"))
+                {
+                    damageToCreeper += damageAmount;
+                }
+                else if (collider.CompareTag("Goblin"))
+                {
+                    damageToGoblin += damageAmount;
+                }
+                else if (collider.CompareTag("Mage"))
+                {
+                    damageToMage += damageAmount;
+                }
+                else if (collider.CompareTag("Sorcerer"))
+                {
+                    damageToSorcerer += damageAmount;
+                }
+                else if (collider.CompareTag("Warlock"))
+                {
+                    damageToWarlock += damageAmount;
+                }
             }
         }
     }

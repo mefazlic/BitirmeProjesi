@@ -6,20 +6,6 @@ using Random = UnityEngine.Random;
 
 public class MeleeEnemyAI : MonoBehaviour
 {
-    /*public float speed;
-    public float checkRadius;
-    public float attackRadius;
-
-    public LayerMask whatIsPlayer;
-
-    private Transform target;
-    private Rigidbody2D rb;
-    private Vector2 movement;
-    public Vector3 dir;
-
-    private bool isInChaseRange;
-    private bool isInAttackRange;*/
-
     public EnemyType enemyType;
     EnemyAttack attackScript;
 
@@ -39,13 +25,6 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (enemyType == EnemyType.CREEPER) { attackScript = gameObject.AddComponent<AttackCreeper>(); }
         else if (enemyType == EnemyType.GOBLIN) { attackScript = gameObject.AddComponent<AttackGoblin>(); }
-        else if (enemyType == EnemyType.MINATOUR) { attackScript = gameObject.AddComponent<AttackMinotaur>(); }
-
-
-        /*
-        rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindWithTag("Player").transform;
-        */
 
         player = FindObjectOfType<Player>();
 
@@ -55,19 +34,6 @@ public class MeleeEnemyAI : MonoBehaviour
         curPos = transform.position;
 
         StartCoroutine(Movement());
-    }
-    private void Update()
-    {
-        /*
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        dir.Normalize();
-        movement = dir;
-        */
-
     }
 
     private void Patrol()
@@ -160,7 +126,6 @@ public class MeleeEnemyAI : MonoBehaviour
                 }
             }
         }
-
         return startPos;
     }
 
@@ -200,22 +165,6 @@ public class MeleeEnemyAI : MonoBehaviour
                 }
             }
         }
-
-    }
-
-    private void FixedUpdate()
-    {
-        /*
-        if (isInChaseRange && !isInAttackRange)
-        {
-            rb.velocity = movement * speed;
-        }
-        if (isInAttackRange)
-        {
-            rb.velocity = Vector2.zero;
-        }
-        */
-
 
     }
 }

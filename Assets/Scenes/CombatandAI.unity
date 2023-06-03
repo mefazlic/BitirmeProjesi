@@ -1034,7 +1034,7 @@ MonoBehaviour:
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
-  OnDeathWithReference:
+  onDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0

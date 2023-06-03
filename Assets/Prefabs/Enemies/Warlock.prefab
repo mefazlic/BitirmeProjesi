@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6287889251680766752}
   m_Layer: 15
   m_Name: Warlock
-  m_TagString: Untagged
+  m_TagString: Warlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   indicatorDuration: 1
   laserPrefab: {fileID: 7134395840173996785, guid: c205b27f3c1443e42aa1bf2d0d35c053, type: 3}
   laserSpeed: 7
+  cooldown: 2
 --- !u!114 &6287889251680766752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +186,8 @@ MonoBehaviour:
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
-  OnDeathWithReference:
+  onDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+  enemyName: 

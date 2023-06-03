@@ -15,6 +15,11 @@ TagManager:
   - miniMapPlayer
   - playerWeapon
   - Missile
+  - Creeper
+  - Goblin
+  - Mage
+  - Sorcerer
+  - Warlock
   layers:
   - Default
   - TransparentFX

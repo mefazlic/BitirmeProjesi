@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -1472414453698003623}
   m_Layer: 15
   m_Name: Mage
-  m_TagString: Untagged
+  m_TagString: Mage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731bb3b5fe4e4b149806aa04aabdabb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerT: {fileID: 2984682879101946928, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
   missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
   missileSpeed: 2
   missileDuration: 3
@@ -185,7 +184,8 @@ MonoBehaviour:
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
-  OnDeathWithReference:
+  onDeathWithReference:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
+  enemyName: 

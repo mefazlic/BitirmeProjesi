@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blast : MonoBehaviour
 {
     public int dmg = 5;
+    public static int damageFromSorcerer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +14,7 @@ public class Blast : MonoBehaviour
         {
             Health health = player.GetComponent<Health>();
             health.GetHit(dmg, transform.gameObject);
+            damageFromSorcerer += dmg;
         }
     }
 }

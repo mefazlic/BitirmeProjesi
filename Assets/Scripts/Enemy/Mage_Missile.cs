@@ -5,6 +5,7 @@ using UnityEngine;
 public class Mage_Missile : MonoBehaviour
 {
     public int dmg = 4;
+    public static int damageFromMage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,7 @@ public class Mage_Missile : MonoBehaviour
         {
             Health health = player.GetComponent<Health>();
             health.GetHit(dmg, transform.gameObject);
-
+            damageFromMage += dmg;
             Destroy(gameObject);
         }
     }

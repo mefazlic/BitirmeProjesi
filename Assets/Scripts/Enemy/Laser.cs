@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public int dmg = 4;
+    public static int damageFromWarlock;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +14,7 @@ public class Laser : MonoBehaviour
         {
             Health health = player.GetComponent<Health>();
             health.GetHit(dmg, transform.gameObject);
+            damageFromWarlock += dmg;
             Destroy(gameObject);
         }
     }

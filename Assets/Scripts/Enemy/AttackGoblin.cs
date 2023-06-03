@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class AttackGoblin : EnemyAttack
 {
 
     public Vector2 dmgRange = new Vector2(1f, 5f);
+    public static int damageFromGoblin;
 
     public override void InitiateAttack(Player player)
     {
@@ -16,6 +18,7 @@ public class AttackGoblin : EnemyAttack
             Debug.Log(name + " attacked and hit for" + dmgAmount + "points of damage");
             Health health = player.GetComponent<Health>();
             health.GetHit(dmgAmount, transform.parent.gameObject);
+            damageFromGoblin += dmgAmount;
         }
         else
         {
