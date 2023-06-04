@@ -43,4 +43,15 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void IncreaseHealth(int amount)
+    {
+        if (currentHealth + amount > maxHealth) 
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += amount;
+        }
+    }
 }
