@@ -63,8 +63,6 @@ public class TileSpawner : MonoBehaviour
                     GameObject goWall = Instantiate(dungeonManager.wallPrefab, targetPos, Quaternion.identity) as GameObject;
                     goWall.name = dungeonManager.wallPrefab.name;
                     goWall.transform.SetParent(dungeonManager.transform); // set the parent of the wall to the dungeon manager
-
-                    //yield return new WaitForSeconds(120f); // Add a delay here
                 }
             }
         }
