@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using static System.Net.WebRequestMethods;
 
-public enum DungeonType { Caverns, Rooms }
+public enum DungeonType { Caverns, Rooms, Square }
 
 public class DungeonManager : MonoBehaviour
 {
@@ -35,6 +35,7 @@ public class DungeonManager : MonoBehaviour
         {
             case DungeonType.Caverns: RandomWalker(); break;
             case DungeonType.Rooms: RoomWalker(); break;
+            case DungeonType.Square: SquareWalker(); break;
         }
     }
 
@@ -104,6 +105,28 @@ public class DungeonManager : MonoBehaviour
         StartCoroutine(DelayProgress());
 
     }
+
+    void SquareWalker()
+    {
+        Vector3 curPos = Vector3.zero;
+        floorList.Add(curPos); // add the current position to the list of floors
+
+        int sideLength = Mathf.CeilToInt(Mathf.Sqrt(totalFloorCount)); // calculate side length based on totalFloorCount
+
+        for (int x = 0; x < sideLength; x++)
+        {
+            for (int y = 0; y < sideLength; y++)
+            {
+                Vector3 newPos = new Vector3(x, y, 0);
+                if (!InFloorList(newPos) && floorList.Count < totalFloorCount)
+                {
+                    floorList.Add(newPos);
+                }
+            }
+        }
+        StartCoroutine(DelayProgress());
+    }
+
 
     Vector3 RandomDirection()
     {
