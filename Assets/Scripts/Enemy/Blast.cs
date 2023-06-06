@@ -12,8 +12,8 @@ public class Blast : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         if (player != null)
         {
-            Health health = player.GetComponent<Health>();
-            health.GetHit(dmg, transform.gameObject);
+            PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
+            playerHealthBar.GetHit(dmg, transform.gameObject);
             damageFromSorcerer += dmg;
         }
     }

@@ -13,8 +13,8 @@ public class AttackBat : EnemyAttack
         {
             int dmgAmount = (int)Mathf.Ceil(Random.Range(dmgRange.x, dmgRange.y));
             Debug.Log(name + " attacked and hit for" + dmgAmount + "points of damage");
-            Health health = player.GetComponent<Health>();
-            health.GetHit(dmgAmount, transform.parent.gameObject);
+            PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
+            playerHealthBar.GetHit(dmgAmount, transform.parent.gameObject);
         }
         else
         {

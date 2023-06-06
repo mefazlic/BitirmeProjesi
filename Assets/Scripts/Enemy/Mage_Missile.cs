@@ -10,10 +10,10 @@ public class Mage_Missile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        if (player != null )
+        if (player != null)
         {
-            Health health = player.GetComponent<Health>();
-            health.GetHit(dmg, transform.gameObject);
+            PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
+            playerHealthBar.GetHit(dmg, transform.gameObject);
             damageFromMage += dmg;
             Destroy(gameObject);
         }

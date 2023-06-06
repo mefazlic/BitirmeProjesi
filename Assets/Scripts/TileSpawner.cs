@@ -50,7 +50,7 @@ public class TileSpawner : MonoBehaviour
 
     IEnumerator PlaceFloorTiles(LayerMask envMask)
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(2f);
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)

@@ -17,8 +17,8 @@ public class AttackCreeper : EnemyAttack
     IEnumerator Explode(Player player)
     {
         yield return new WaitForSeconds(1f);
-        Health health = player.GetComponent<Health>();
-        health.GetHit(dmg, transform.parent.gameObject);
+        PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
+        playerHealthBar.GetHit(dmg, transform.parent.gameObject);
         damageFromCreeper += dmg;
         Destroy(gameObject);
     }

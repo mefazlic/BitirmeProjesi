@@ -10,7 +10,7 @@ public class Potion : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Health playerH = collision.GetComponent<Health>();
+            PlayerHealthBar playerH = collision.GetComponent<PlayerHealthBar>();
 
             if (playerH != null)
             {
