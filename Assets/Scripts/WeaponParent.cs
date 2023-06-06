@@ -16,6 +16,7 @@ public class WeaponParent : MonoBehaviour
 
     public static int damageToCreeper;
     public static int damageToGoblin;
+    public static int damageToBat;
     public static int damageToMage;
     public static int damageToSorcerer;
     public static int damageToWarlock;
@@ -58,6 +59,10 @@ public class WeaponParent : MonoBehaviour
                 else if (collider.CompareTag("Goblin"))
                 {
                     damageToGoblin += damageAmount;
+                }
+                else if (collider.CompareTag("Bat"))
+                {
+                    damageToBat += damageAmount;
                 }
                 else if (collider.CompareTag("Mage"))
                 {

@@ -16,7 +16,8 @@ public class AttackCreeper : EnemyAttack
 
     IEnumerator Explode(Player player)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
+        //oncollisionenter2d ile kontrol etmek lazým
         PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
         playerHealthBar.GetHit(dmg, transform.parent.gameObject);
         damageFromCreeper += dmg;

@@ -15,14 +15,9 @@ public class AttackGoblin : EnemyAttack
         if (roll > 50)
         {
             int dmgAmount = (int)Mathf.Ceil(Random.Range(dmgRange.x, dmgRange.y));
-            Debug.Log(name + " attacked and hit for" + dmgAmount + "points of damage");
             PlayerHealthBar playerHealthBar = player.GetComponent<PlayerHealthBar>();
             playerHealthBar.GetHit(dmgAmount, transform.parent.gameObject);
             damageFromGoblin += dmgAmount;
-        }
-        else
-        {
-            Debug.Log(name + " attacked and missed");
         }
     }
 }
