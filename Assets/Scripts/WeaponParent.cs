@@ -7,8 +7,8 @@ public class WeaponParent : MonoBehaviour
     public Vector2 PointerPosition { get; set; }
 
     public Animator animator;
-    public float delay = 0.3f;
     private bool attackBlocked;
+    private int attackCount;
 
     public Transform circleOrigin;
     public float radius;
@@ -21,18 +21,43 @@ public class WeaponParent : MonoBehaviour
     public static int damageToSorcerer;
     public static int damageToWarlock;
 
+    private Coroutine resetCoroutine;
+
     public void Attack()
     {
         if (attackBlocked) { return; }
+
+        if (resetCoroutine != null)
+        {
+            StopCoroutine(resetCoroutine);
+        }
+
         animator.SetTrigger("Attack");
         attackBlocked = true;
-        StartCoroutine(DelayAttack());
-        attackBlocked = false;
+
+        attackCount++;
+        if (attackCount >= 3)
+        {
+            StartCoroutine(DelayAttack());
+            attackCount = 0;
+        }
+        else
+        {
+            attackBlocked = false;
+        }
+        resetCoroutine = StartCoroutine(ResetAttackCount());
     }
 
     private IEnumerator DelayAttack()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(0.7f);
+        attackBlocked = false;
+    }
+
+    private IEnumerator ResetAttackCount()
+    {
+        yield return new WaitForSeconds(2.0f);
+        attackCount = 0;
     }
 
     private void OnDrawGizmosSelected()
@@ -46,12 +71,11 @@ public class WeaponParent : MonoBehaviour
     {
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
         {
-            //Debug.Log(collider.name);
             Health health;
             if (health = collider.GetComponent<Health>())
             {
                 health.GetHit(damageAmount, transform.parent.gameObject);
-                
+
                 if (collider.CompareTag("Creeper"))
                 {
                     damageToCreeper += damageAmount;
