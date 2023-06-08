@@ -37,6 +37,6 @@ public class AttackCreeper : EnemyAttack
         GameObject blastArea = Instantiate(blastPrefab, transform.position, Quaternion.identity);
         blastArea.transform.localScale = new Vector3(radius, radius, 1f);
         Destroy(blastArea, 0.5f);
-        Destroy(gameObject);
+        if (gameObject.tag != "Boss") { Destroy(gameObject); }
     }    
 }

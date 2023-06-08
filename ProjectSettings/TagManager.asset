@@ -21,6 +21,7 @@ TagManager:
   - Sorcerer
   - Warlock
   - Bat
+  - Boss
   layers:
   - Default
   - TransparentFX
