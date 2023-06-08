@@ -2,15 +2,19 @@ using NUnit.Framework;
 using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static System.Net.WebRequestMethods;
 
+public enum RunState { Testing, Playing }
 public enum DungeonType { Caverns, Rooms, Square }
 
 public class DungeonManager : MonoBehaviour
 {
 
+    public TextMeshProUGUI dungeonTypeText;
     public GameObject[] randomItems; // Holds the items that spawn randomly
     public GameObject[] randomEnemies; // Holds the items that spawn randomly
     public GameObject floorPrefab, wallPrefab, tileSpawnerPrefab, exitPrefab;
@@ -19,6 +23,7 @@ public class DungeonManager : MonoBehaviour
     [UnityEngine.Range(0, 100)] public int itemSpawnPercent;
     [UnityEngine.Range(0, 100)] public int enemySpawnPercent;
     public DungeonType dungeonType;
+    public RunState runState;
 
     [HideInInspector] public float minX, maxX, minY, maxY; // floors bounds (min x,y and max x,y)
 
@@ -30,6 +35,11 @@ public class DungeonManager : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         wallMask = LayerMask.GetMask("Wall");
 
+       if(runState == RunState.Playing)
+        {
+            dungeonType = GameState.Instance.GetCurrentDungeonType();
+        }
+
 
         switch (dungeonType)
         {
@@ -37,7 +47,9 @@ public class DungeonManager : MonoBehaviour
             case DungeonType.Rooms: RoomWalker(); break;
             case DungeonType.Square: SquareWalker(); break;
         }
+        dungeonTypeText.text = "Dungeon Type: " + dungeonType.ToString();
     }
+
 
     void Update()
     {
