@@ -23,7 +23,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void Start()
     {
-        if (enemyType == EnemyType.CREEPER) { attackScript = gameObject.AddComponent<AttackCreeper>(); }
+        if (enemyType == EnemyType.CREEPER) { attackScript = gameObject.GetComponent<AttackCreeper>(); }
         else if (enemyType == EnemyType.GOBLIN) { attackScript = gameObject.AddComponent<AttackGoblin>(); }
 
         player = FindObjectOfType<Player>();

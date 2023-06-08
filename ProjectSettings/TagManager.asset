@@ -20,6 +20,7 @@ TagManager:
   - Mage
   - Sorcerer
   - Warlock
+  - Bat
   layers:
   - Default
   - TransparentFX
