@@ -19,10 +19,10 @@ public class AttackCreeper : EnemyAttack
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.red;
 
-        StartCoroutine(Explode(player));
+        StartCoroutine(Explode(player, spriteRenderer));
     }
 
-    IEnumerator Explode(Player player)
+    IEnumerator Explode(Player player, SpriteRenderer spriteRenderer)
     {
         yield return new WaitForSeconds(1f);
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
@@ -43,5 +43,6 @@ public class AttackCreeper : EnemyAttack
         blastArea.transform.localScale = new Vector3(radius, radius, 1f);
         Destroy(blastArea, 0.5f);
         if (gameObject.tag != "Boss") { Destroy(gameObject); }
+        spriteRenderer.color = Color.white;
     }    
 }
