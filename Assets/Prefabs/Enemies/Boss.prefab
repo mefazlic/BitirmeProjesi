@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4377636810743227452}
   - component: {fileID: 5678354005372218381}
+  - component: {fileID: -6848505520853127804}
+  - component: {fileID: -3042208460247313558}
   - component: {fileID: 5202787904836271862}
   - component: {fileID: 1089370975875410955}
   - component: {fileID: -1736545576707944883}
@@ -92,6 +94,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &-6848505520853127804
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712895836140781908}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &-3042208460247313558
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712895836140781908}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &5202787904836271862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390a094f9dd94dd45990b31d21e11996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patrolInterval: {x: 1, y: 2}
+  alertRange: 10
+  chaseSpeed: 2
 --- !u!114 &1089370975875410955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecab0147949fda4c80c97620abd6168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   dmgRange: {x: 1, y: 3}
   duration: 2
+  isRanged: 0
 --- !u!114 &2275732651618844280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,9 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586637e575cb3af4ab421ae5dc1ef9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   dmg: 7
   blastPrefab: {fileID: 5491421891823737800, guid: ed424b1befdb76d419d5de8b5b434273, type: 3}
   radius: 3
+  isRanged: 0
 --- !u!114 &131560197356713886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d476a6fc795f7f43a17eec68aa7f4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   dmgRange: {x: 3, y: 8}
+  isRanged: 0
 --- !u!114 &-7918393834442123404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731bb3b5fe4e4b149806aa04aabdabb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
   missileSpeed: 2
   missileDuration: 2
+  isRanged: 1
 --- !u!114 &5647128987566460343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,11 +254,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2251f344c057f3d478433194d70ae1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   blastPrefab: {fileID: 5491421891823737800, guid: ed424b1befdb76d419d5de8b5b434273, type: 3}
   blastRadius: 3
   indicatorPrefab: {fileID: 3794416554551632461, guid: 368c2ce0320790b469e2bfb8879fb30f, type: 3}
   indicatorDuration: 0.5
   cooldown: 2
+  isRanged: 1
 --- !u!114 &-6721155519389305397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,8 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b4a074a99e8fe4fb87faab025bb2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   indicatorPrefab: {fileID: 5357010558387014765, guid: 8a1f23ec38b00be47b2ed92f5916f2b9, type: 3}
   indicatorDuration: 1
   laserPrefab: {fileID: 7134395840173996785, guid: c205b27f3c1443e42aa1bf2d0d35c053, type: 3}
   laserSpeed: 10
   cooldown: 2
+  isRanged: 1

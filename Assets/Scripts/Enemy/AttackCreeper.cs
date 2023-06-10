@@ -9,6 +9,11 @@ public class AttackCreeper : EnemyAttack
     public GameObject blastPrefab;
     public float radius = 3f;
 
+    public AttackCreeper()
+    {
+        this.isRanged = false;
+    }
+
     public override void InitiateAttack(Player player)
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();

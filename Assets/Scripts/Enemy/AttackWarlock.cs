@@ -12,6 +12,12 @@ public class AttackWarlock : EnemyAttack
 
     public float cooldown = 2f;
     private bool canAttack = true;
+
+    public AttackWarlock()
+    {
+        this.isRanged = true;
+    }
+
     public override void InitiateAttack(Player player)
     {
         // straight blast

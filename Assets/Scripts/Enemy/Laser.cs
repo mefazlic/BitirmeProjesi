@@ -9,6 +9,11 @@ public class Laser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+
         Player player = collision.GetComponent<Player>();
         if (player != null)
         {

@@ -9,6 +9,11 @@ public class AttackGoblin : EnemyAttack
     public Vector2 dmgRange = new Vector2(1f, 5f);
     public static int damageFromGoblin;
 
+    public AttackGoblin()
+    {
+        this.isRanged = false;
+    }
+
     public override void InitiateAttack(Player player)
     {
         int roll = Random.Range(0, 100);

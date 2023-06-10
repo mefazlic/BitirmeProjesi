@@ -10,6 +10,11 @@ public class AttackBat : EnemyAttack
 
     private bool isAttacking = false;
 
+    public AttackBat()
+    {
+        this.isRanged = false;
+    }
+
     public override void InitiateAttack(Player player)
     {
         if (!isAttacking)

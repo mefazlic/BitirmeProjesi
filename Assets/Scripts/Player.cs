@@ -50,7 +50,14 @@ public class Player : MonoBehaviour
                 if (Mathf.Abs(horz) > 0)
                 {
                     GFX.localScale = new Vector2(flipGFX * horz, GFX.localScale.y);
+                    weapon.rotation = Quaternion.Euler(0, 0, 0);
                     weapon.localScale = new Vector2(flipWeapon * horz, weapon.localScale.y);
+                }
+                if (Mathf.Abs(vert) > 0)
+                {
+                    if (weapon.localScale.x > 0) { weapon.rotation = Quaternion.Euler(0, 0, 90 * vert); }
+                    else { weapon.rotation = Quaternion.Euler(0, 0, 90 * -vert); }
+                    
                 }
 
                 if (!isMoving)

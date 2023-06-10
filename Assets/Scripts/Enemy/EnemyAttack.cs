@@ -4,5 +4,6 @@ using UnityEngine;
 
 public abstract class EnemyAttack : MonoBehaviour
 {
+    public bool isRanged;
     public abstract void InitiateAttack(Player player);
 }

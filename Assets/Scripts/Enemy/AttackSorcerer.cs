@@ -13,6 +13,11 @@ public class AttackSorcerer : EnemyAttack
     public float cooldown = 3f;
     private bool canAttack = true;
 
+    public AttackSorcerer()
+    {
+        this.isRanged = true;
+    }
+
     public override void InitiateAttack(Player player)
     {
         if (!canAttack)
