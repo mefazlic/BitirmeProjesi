@@ -558,10 +558,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.10591133
-    y: 0.10510948
-    width: 0.7881774
-    height: 0.78832114
+    x: 0.10784314
+    y: 0.10755814
+    width: 0.78431374
+    height: 0.78488374
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -952,6 +952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2984682879101946935, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
+      propertyPath: dashDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
 --- !u!1 &1315649046
@@ -1114,14 +1118,15 @@ MonoBehaviour:
   - {fileID: 1313489912487609660, guid: 106b3f136d8af3846be882b87ad648f7, type: 3}
   - {fileID: 2705181494626337374, guid: ac8f91819332e2f48a98fdf60f357e96, type: 3}
   - {fileID: 3679405616061596823, guid: a9c1658da90b2494faa43f201b9782c7, type: 3}
+  bossEnemy: {fileID: 6712895836140781908, guid: dfe4513a23a0563478c99df116931c46, type: 3}
   floorPrefab: {fileID: 6705630016266693597, guid: 823c295d7d1321846a89c8f01549f4c4, type: 3}
   wallPrefab: {fileID: 2391059671053491794, guid: 22d1d6f0a9443e24eb66d59b0c251a0c, type: 3}
   tileSpawnerPrefab: {fileID: 4710720065386534700, guid: 9264fcf0aa299184bb68634985e9e9d5, type: 3}
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
   totalFloorCount: 150
-  itemSpawnPercent: 0
-  enemySpawnPercent: 0
-  dungeonType: 1
+  itemSpawnPercent: 74
+  enemySpawnPercent: 20
+  dungeonType: 2
   runState: 1
   minX: 0
   maxX: 0

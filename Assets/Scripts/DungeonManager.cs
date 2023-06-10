@@ -15,11 +15,15 @@ public class DungeonManager : MonoBehaviour
 {
 
     public TextMeshProUGUI dungeonTypeText;
+
     public GameObject[] randomItems; // Holds the items that spawn randomly
     public GameObject[] randomEnemies; // Holds the items that spawn randomly
+    public GameObject bossEnemy;
     public GameObject floorPrefab, wallPrefab, tileSpawnerPrefab, exitPrefab;
 
     public int totalFloorCount;
+    private int spawnedItemCount = 0; // Olusturulan item sayisini tutan degisken
+
     [UnityEngine.Range(0, 100)] public int itemSpawnPercent;
     [UnityEngine.Range(0, 100)] public int enemySpawnPercent;
     public DungeonType dungeonType;
@@ -183,7 +187,14 @@ public class DungeonManager : MonoBehaviour
             yield return null; // wait till next frame;
         }
 
-        ExitDoorway();
+        if (dungeonType != DungeonType.Square) // Eðer SQUARE tipi deðilse exit doorway oluþtur
+        {
+            ExitDoorway();
+        }
+        else // Eðer SQUARE tipinde ise bossEnemy oluþtur
+        {
+            SpawnBossEnemy();
+        }
 
         Vector2 hitSize = Vector2.one * 0.8f;
 
@@ -209,9 +220,7 @@ public class DungeonManager : MonoBehaviour
                 }
             }
         }
-
     }
-
 
     void ExitDoorway()
     {
@@ -226,24 +235,42 @@ public class DungeonManager : MonoBehaviour
 
     void RandomItems(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
     {
-
-        if ((hitTop || hitRight || hitBottom || hitLeft) && !(hitTop && hitBottom) && (hitLeft && hitRight))
+        // dungeonType SQUARE ise ve daha önce 5'ten az item oluþturulmuþsa
+        if (dungeonType == DungeonType.Square && spawnedItemCount < 5)
         {
             int roll = Random.Range(0, 101);
             if (roll < itemSpawnPercent)
             {
                 int itemIndex = Random.Range(0, randomItems.Length);
 
-                GameObject goItem = Instantiate(randomItems[itemIndex], hitFloor.transform.position, Quaternion.identity) as GameObject; // spawn the item
+                GameObject goItem = Instantiate(randomItems[itemIndex], hitFloor.transform.position, Quaternion.identity) as GameObject;
                 goItem.name = randomItems[itemIndex].name;
-                goItem.transform.SetParent(hitFloor.transform); // set the item as a child of the floor
-            }
+                goItem.transform.SetParent(hitFloor.transform);
 
+                spawnedItemCount++; // Her item spawnlandýðýnda sayacý bir arttýrýyoruz
+            }
+        }
+        // Eðer dungeonType SQUARE deðilse orjinal kurallar geçerli
+        else if ((hitTop || hitRight || hitBottom || hitLeft) && !(hitTop && hitBottom) && (hitLeft && hitRight))
+        {
+            int roll = Random.Range(0, 101);
+            if (roll < itemSpawnPercent)
+            {
+                int itemIndex = Random.Range(0, randomItems.Length);
+
+                GameObject goItem = Instantiate(randomItems[itemIndex], hitFloor.transform.position, Quaternion.identity) as GameObject;
+                goItem.name = randomItems[itemIndex].name;
+                goItem.transform.SetParent(hitFloor.transform);
+            }
         }
     }
 
+
     void RandomEnemies(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
     {
+        if (dungeonType == DungeonType.Square) return; // SQUARE tipinde düþman oluþturma iþlemini atla
+
+
         if (!hitTop && !hitRight && !hitBottom && !hitLeft)
         {
             int roll = Random.Range(0, 101);
@@ -257,4 +284,25 @@ public class DungeonManager : MonoBehaviour
             }
         }
     }
+
+    void SpawnBossEnemy()
+    {
+        GameObject goBoss = Instantiate(bossEnemy, floorList[floorList.Count - 1], Quaternion.identity) as GameObject; // spawn the boss
+        goBoss.name = bossEnemy.name;
+        goBoss.transform.SetParent(transform); // set the boss as a child of the room
+    }
+
+
+    void RandomBossEnemy(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
+    {
+        if (dungeonType != DungeonType.Square) return; // SQUARE tipinde deðilse boss oluþturma iþlemini atla
+
+        if (!hitTop && !hitRight && !hitBottom && !hitLeft)
+        {
+            GameObject goBoss = Instantiate(bossEnemy, hitFloor.transform.position, Quaternion.identity) as GameObject; // spawn the boss
+            goBoss.name = bossEnemy.name;
+            goBoss.transform.SetParent(hitFloor.transform); // set the boss as a child of the floor
+        }
+    }
+
 }
