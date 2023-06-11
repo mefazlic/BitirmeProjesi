@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731bb3b5fe4e4b149806aa04aabdabb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 1
   missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
   missileSpeed: 2
   missileDuration: 3
@@ -188,4 +189,3 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
-  enemyName: 

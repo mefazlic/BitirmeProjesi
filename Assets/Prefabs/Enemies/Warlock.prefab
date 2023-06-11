@@ -164,11 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b4a074a99e8fe4fb87faab025bb2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 1
   indicatorPrefab: {fileID: 5357010558387014765, guid: 8a1f23ec38b00be47b2ed92f5916f2b9, type: 3}
   indicatorDuration: 1
   laserPrefab: {fileID: 7134395840173996785, guid: c205b27f3c1443e42aa1bf2d0d35c053, type: 3}
   laserSpeed: 7
-  cooldown: 2
+  cooldown: 1.5
 --- !u!114 &6287889251680766752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 15
-  maxHealth: 15
+  currentHealth: 10
+  maxHealth: 10
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -190,4 +191,3 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isDead: 0
-  enemyName: 

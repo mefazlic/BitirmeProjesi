@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 3
-  speed: 2.5
+  speed: 2
   checkRadius: 10
   attackRadius: 0.8
   whatIsPlayer:

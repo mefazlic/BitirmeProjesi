@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    public int dmg = 4;
+    public int dmg = 6;
     public static int damageFromWarlock;
 
     private void OnTriggerEnter2D(Collider2D collision)

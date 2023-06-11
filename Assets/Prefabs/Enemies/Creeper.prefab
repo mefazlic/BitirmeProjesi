@@ -151,7 +151,7 @@ MonoBehaviour:
   enemyType: 6
   patrolInterval: {x: 1, y: 2}
   alertRange: 10
-  chaseSpeed: 3
+  chaseSpeed: 5
 --- !u!114 &2797698980002369414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 5
-  maxHealth: 5
+  currentHealth: 10
+  maxHealth: 10
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586637e575cb3af4ab421ae5dc1ef9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRanged: 0
   dmg: 7
   blastPrefab: {fileID: 5491421891823737800, guid: ed424b1befdb76d419d5de8b5b434273, type: 3}
   radius: 3

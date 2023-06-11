@@ -7,7 +7,7 @@ public class Mage_Missile : MonoBehaviour
     public float missileTimer;
     public float missileSpeed;
 
-    public int dmg = 4;
+    public int dmg = 3;
     public static int damageFromMage;
 
     private void OnTriggerEnter2D(Collider2D collision)

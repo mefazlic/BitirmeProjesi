@@ -25,6 +25,8 @@ public class AttackCreeper : EnemyAttack
     IEnumerator Explode(Player player, SpriteRenderer spriteRenderer)
     {
         yield return new WaitForSeconds(1f);
+        GameObject blastArea = Instantiate(blastPrefab, transform.position, Quaternion.identity);
+        blastArea.transform.localScale = new Vector3(radius, radius, 1f);
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
             Health health;
@@ -38,9 +40,7 @@ public class AttackCreeper : EnemyAttack
                 playerHealth.GetHit(dmg, transform.parent.gameObject);
                 damageFromCreeper += dmg;
             }
-        }
-        GameObject blastArea = Instantiate(blastPrefab, transform.position, Quaternion.identity);
-        blastArea.transform.localScale = new Vector3(radius, radius, 1f);
+        }        
         Destroy(blastArea, 0.5f);
         if (gameObject.tag != "Boss") { Destroy(gameObject); }
         spriteRenderer.color = Color.white;
