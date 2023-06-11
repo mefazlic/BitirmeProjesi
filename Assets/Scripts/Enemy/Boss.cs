@@ -56,7 +56,6 @@ public class Boss : MonoBehaviour
             currentAttack = attackScripts[1];
         }
     }
-
     private void ChooseAttacks()
     {
         results.Add("Goblin",(AttackGoblin.damageFromGoblin * 1.5f - WeaponParent.damageToGoblin * 0.25f) / 2 * weights["Goblin"]);
@@ -82,6 +81,7 @@ public class Boss : MonoBehaviour
             if (index == 3) { break; } 
         }
     }
+
     IEnumerator Movement()
     {
         while (true)
@@ -97,7 +97,7 @@ public class Boss : MonoBehaviour
                         if (dist <= 6f)
                         {
                             currentAttack.InitiateAttack(player);
-                            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.15f));
+                            yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.5f));
                         }
 
                         else
@@ -119,7 +119,7 @@ public class Boss : MonoBehaviour
                         if (dist <= 1.1f)
                         {
                             currentAttack.InitiateAttack(player);
-                            yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.15f));
+                            yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.5f));
                         }
 
                         else
@@ -184,7 +184,7 @@ public class Boss : MonoBehaviour
         }
         transform.position = curPos;
 
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(0.1f);
 
         isMoving = false;
     }
