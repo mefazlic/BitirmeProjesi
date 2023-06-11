@@ -150,7 +150,7 @@ MonoBehaviour:
   enemyType: 3
   speed: 2
   checkRadius: 10
-  attackRadius: 0.8
+  attackRadius: 0.7
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1024
