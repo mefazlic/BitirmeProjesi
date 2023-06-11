@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: -7918393834442123404}
   - component: {fileID: 5647128987566460343}
   - component: {fileID: -6721155519389305397}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolInterval: {x: 1, y: 2}
   alertRange: 20
-  chaseSpeed: 4
+  chaseSpeed: 5
 --- !u!114 &1089370975875410955
 MonoBehaviour:
   m_ObjectHideFlags: 0
