@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttackGoblin : EnemyAttack
 {
 
-    public Vector2 dmgRange = new Vector2(1f, 5f);
+    public Vector2 dmgRange = new Vector2(3f, 10f);
     public static int damageFromGoblin;
 
     public AttackGoblin()
