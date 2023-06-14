@@ -44,33 +44,29 @@ public class TileSpawner : MonoBehaviour
     {
         LayerMask envMask = LayerMask.GetMask("Wall", "Floor"); // get the layer mask for the walls and floors layer
 
-        StartCoroutine(PlaceFloorTiles(envMask));
-    
-    }
-
-    IEnumerator PlaceFloorTiles(LayerMask envMask)
-    {
-        yield return new WaitForSeconds(2f);
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
                 Vector2 targetPos = new Vector2(transform.position.x + x, transform.position.y + y); // get the position of the tile we are checking
-                Collider2D hit = Physics2D.OverlapBox(targetPos, Vector2.one * 0.8f, 0, envMask); 
+                Collider2D hit = Physics2D.OverlapBox(targetPos, Vector2.one * 0.8f, 0, envMask);
 
                 if (!hit)
                 { // add a wall
                     GameObject goWall = Instantiate(dungeonManager.wallPrefab, targetPos, Quaternion.identity) as GameObject;
                     goWall.name = dungeonManager.wallPrefab.name;
-                    goWall.transform.SetParent(dungeonManager.transform); // set the parent of the wall to the dungeon manager
+                    goWall.transform.SetParent(dungeonManager.transform); // set tlhe parent of the floor to the dungeon manager
                 }
             }
         }
 
+
         Destroy(gameObject); // destroy the tile spawner   
     }
 
-void OnDrawGizmos()
+
+
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
 

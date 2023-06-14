@@ -177,8 +177,6 @@ public class DungeonManager : MonoBehaviour
             GameObject goTile = Instantiate(tileSpawnerPrefab, floorList[i], Quaternion.identity) as GameObject;
             goTile.name = tileSpawnerPrefab.name;
             goTile.transform.SetParent(transform);
-
-            yield return new WaitForSeconds(0.01f); // Add a delay here
         }
 
         while (FindObjectsOfType<TileSpawner>().Length > 0)
