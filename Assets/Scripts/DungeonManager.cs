@@ -39,7 +39,7 @@ public class DungeonManager : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         wallMask = LayerMask.GetMask("Wall");
 
-       if(runState == RunState.Playing)
+        if (runState == RunState.Playing)
         {
             dungeonType = GameState.Instance.GetCurrentDungeonType();
         }
@@ -234,10 +234,9 @@ public class DungeonManager : MonoBehaviour
     void RandomItems(Collider2D hitFloor, Collider2D hitTop, Collider2D hitRight, Collider2D hitBottom, Collider2D hitLeft)
     {
         // dungeonType SQUARE ise ve daha önce 5'ten az item oluþturulmuþsa
-        if (dungeonType == DungeonType.Square && spawnedItemCount < 5)
+        if (dungeonType == DungeonType.Square && spawnedItemCount < 1)
         {
-            int roll = Random.Range(0, 101);
-            if (roll < itemSpawnPercent)
+            if (hitFloor.transform.position.x == 0 && hitFloor.transform.position.y == maxY - 1)
             {
                 int itemIndex = Random.Range(0, randomItems.Length);
 
