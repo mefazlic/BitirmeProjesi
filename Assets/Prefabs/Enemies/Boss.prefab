@@ -156,6 +156,7 @@ MonoBehaviour:
   patrolInterval: {x: 1, y: 2}
   alertRange: 20
   chaseSpeed: 5
+  valuesText: {fileID: 7730973224291093128, guid: 712a2714d742d34438d398045acd9443, type: 3}
 --- !u!114 &1089370975875410955
 MonoBehaviour:
   m_ObjectHideFlags: 0

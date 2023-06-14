@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.XPath;
+using TMPro;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -30,7 +31,7 @@ public class Boss : MonoBehaviour
         health = GetComponent<Health>();
 
         weights.Add("Goblin", 0.7f);
-        weights.Add("Creeper", 0.5f);
+        weights.Add("Creeper", 0.6f);
         weights.Add("Bat", 0.65f);
         weights.Add("Mage", 0.6f);
         weights.Add("Sorcerer", 0.8f);
@@ -66,7 +67,8 @@ public class Boss : MonoBehaviour
         results.Add("Warlock", (Laser.damageFromWarlock * 1.5f  - WeaponParent.damageToWarlock * 0.25f) / 2 * weights["Warlock"]);
         foreach (var item in results) { print(item.Key+ ": " + item.Value); }
         var orderedResults = results.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-     
+
+        print("Selected Attack Types:");
         var index = 0;
         foreach (var result in orderedResults)
         {
