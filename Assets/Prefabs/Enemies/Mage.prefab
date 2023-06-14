@@ -97,11 +97,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7366978369331153719}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   patrolInterval: {x: 1, y: 2}
-  alertRange: 10
+  alertRange: 13
   chaseSpeed: 1
 --- !u!114 &5629097237645162737
 MonoBehaviour:
@@ -168,6 +168,8 @@ MonoBehaviour:
   missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
   missileSpeed: 2
   missileDuration: 3
+  missilePerBurst: 3
+  cooldown: 1.5
 --- !u!114 &-1472414453698003623
 MonoBehaviour:
   m_ObjectHideFlags: 0

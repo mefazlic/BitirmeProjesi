@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 716391012}
-  delay: 0.3
   circleOrigin: {fileID: 1920685011}
   radius: 0.55
   damageAmount: 5
@@ -342,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  dashDistance: 0
+  dashDistance: 2
 --- !u!50 &-3890915280621051018
 Rigidbody2D:
   serializedVersion: 4
@@ -351,7 +350,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2984682879101946934}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

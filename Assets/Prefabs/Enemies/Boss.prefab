@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 250
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9badfc1aa132094ca9ae48ba4ae26b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 70
-  maxHealth: 70
+  currentHealth: 100
+  maxHealth: 100
   onHitWithReference:
     m_PersistentCalls:
       m_Calls: []
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRanged: 1
   missilePrefab: {fileID: 7761489107780169793, guid: 6cd01bcac04b24f43b5bde0f798feb9a, type: 3}
-  missileSpeed: 2
+  missileSpeed: 3
   missileDuration: 3
   missilePerBurst: 3
   cooldown: 1.5
@@ -257,7 +257,7 @@ MonoBehaviour:
   blastRadius: 3
   indicatorPrefab: {fileID: 3794416554551632461, guid: 368c2ce0320790b469e2bfb8879fb30f, type: 3}
   indicatorDuration: 0.5
-  cooldown: 1.7
+  cooldown: 1.5
 --- !u!114 &-6721155519389305397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,5 +274,5 @@ MonoBehaviour:
   indicatorPrefab: {fileID: 5357010558387014765, guid: 8a1f23ec38b00be47b2ed92f5916f2b9, type: 3}
   indicatorDuration: 1
   laserPrefab: {fileID: 7134395840173996785, guid: c205b27f3c1443e42aa1bf2d0d35c053, type: 3}
-  laserSpeed: 10
+  laserSpeed: 15
   cooldown: 1.5

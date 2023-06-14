@@ -837,29 +837,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1042019150, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1042019150, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1042019150, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1042019150, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2984682879101946928, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984682879101946928, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2984682879101946928, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
       propertyPath: m_LocalPosition.x
@@ -904,10 +884,6 @@ PrefabInstance:
     - target: {fileID: 2984682879101946934, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2984682879101946935, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
-      propertyPath: dashDistance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3537c1fb9db96174baedbc5aaeb61034, type: 3}
@@ -1081,7 +1057,7 @@ MonoBehaviour:
   itemSpawnPercent: 35
   enemySpawnPercent: 20
   dungeonType: 2
-  runState: 0
+  runState: 1
   minX: 0
   maxX: 0
   minY: 0

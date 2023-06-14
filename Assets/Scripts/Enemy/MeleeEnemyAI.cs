@@ -61,10 +61,10 @@ public class MeleeEnemyAI : MonoBehaviour
             curPos += availableMovementList[randomIndex];
             //transform.position = curPos;
         }
-        StartCoroutine(SmoothMove(Random.Range(patrolInterval.x, patrolInterval.y)));
+        StartCoroutine(SmoothMove());
     }
 
-    IEnumerator SmoothMove(float speed)
+    IEnumerator SmoothMove()
     {
         isMoving = true;
 
@@ -74,7 +74,7 @@ public class MeleeEnemyAI : MonoBehaviour
             yield return null;
         } transform.position = curPos;
 
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(0.7f);
 
         isMoving = false;
     }
@@ -151,7 +151,7 @@ public class MeleeEnemyAI : MonoBehaviour
                         if (newPos != curPos)
                         {
                             curPos = newPos;
-                            StartCoroutine(SmoothMove(chaseSpeed));
+                            StartCoroutine(SmoothMove());
                         }
                         else
                         {
