@@ -30,8 +30,8 @@ public class Boss : MonoBehaviour
         player = FindObjectOfType<Player>();
         health = GetComponent<Health>();
 
-        weights.Add("Goblin", 0.7f);
-        weights.Add("Creeper", 0.6f);
+        weights.Add("Goblin", 0.6f);
+        weights.Add("Creeper", 0.8f);
         weights.Add("Bat", 0.65f);
         weights.Add("Mage", 0.6f);
         weights.Add("Sorcerer", 0.8f);

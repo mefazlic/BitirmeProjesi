@@ -1101,11 +1101,11 @@ MonoBehaviour:
   wallPrefab: {fileID: 2391059671053491794, guid: 22d1d6f0a9443e24eb66d59b0c251a0c, type: 3}
   tileSpawnerPrefab: {fileID: 4710720065386534700, guid: 9264fcf0aa299184bb68634985e9e9d5, type: 3}
   exitPrefab: {fileID: 7057925932279629856, guid: 72a46772837a28844ae5c6193ab59198, type: 3}
-  totalFloorCount: 200
+  totalFloorCount: 500
   itemSpawnPercent: 30
-  enemySpawnPercent: 20
+  enemySpawnPercent: 15
   dungeonType: 0
-  runState: 1
+  runState: 0
   minX: 0
   maxX: 0
   minY: 0
