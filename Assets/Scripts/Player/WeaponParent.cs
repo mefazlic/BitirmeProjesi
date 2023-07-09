@@ -12,7 +12,7 @@ public class WeaponParent : MonoBehaviour
 
     public Transform circleOrigin;
     public float radius;
-    public int damageAmount;
+    public int damageAmount ;
 
     public static int damageToCreeper;
     public static int damageToGoblin;
